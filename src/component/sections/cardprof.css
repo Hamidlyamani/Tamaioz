@@ -1,0 +1,80 @@
+.card {
+    display: flex;
+    flex-direction: column;
+    margin: 0.4rem;
+    border-radius: 30px;
+    width: 23%;
+    overflow: hidden;
+}
+
+.card * {
+    flex-direction: column;
+    display: flex;
+    margin: auto;
+}
+
+.card .header .nom h5 {
+    font-weight: 700;
+}
+.card .header .nom h5 {
+    font-weight: 700;
+    margin: 10px;
+}
+
+.card .header img {
+    display: flex;
+    border-radius: 10px;
+    width: 100%;
+}
+.body_card{
+    font-size: 14px;
+    font-weight: 200;
+}
+.body_card .info {
+    align-items: center;
+    height: 20px;
+    font-family: 'yellix-light' !important;
+    font-weight: 900 !important;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.card .header,
+.body_card {
+    margin: 5px auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.body_card .discription {
+    margin: 0px 20px;
+}
+
+.body_card .rate {
+    flex-direction: row;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.body_card .rate img {
+    display: inline-flex;
+    margin: 4px;
+}
+
+.savoir_plus {
+    background-color: var(--secondary);
+    padding: 10px 40px;
+    text-decoration: none;
+    text-decoration: none;
+    margin: 10px auto;
+    font-weight: 600;
+    font-size: 1.2em;
+    border-radius: 10px;
+    color: #ffffff;
+    border: solid 2px var(--light3);
+    border: 2px solid var(--primary);
+}

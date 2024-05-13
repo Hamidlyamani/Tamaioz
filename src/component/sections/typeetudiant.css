@@ -1,0 +1,62 @@
+.Typeetudiant {
+    display: flex;
+margin: 40px auto;
+}
+
+.Typeetudiant .description {
+    width: 50%;
+    text-align:left;
+    margin: 0px 10px;
+    
+}
+.Typeetudiant .description .titre{
+    font-size: 1.6em;
+    font-weight: 600;
+    margin: 0px 20px;
+}
+.Typeetudiant .description .text{
+margin: 20px 30px;
+font-size: 1.2em;text-align:left;
+    font-weight: 800;font-family: 'yellix-light';
+}
+.image {
+    width: 50%;
+}
+.image img{
+    width: 100%;
+}
+
+ @media only screen and (max-width: 991px) {
+.Typeetudiant .description .titre {
+        font-size: 1.2em;
+}
+
+.Typeetudiant .description .text {
+    font-size: 1em;
+}
+ }
+ @media only screen and (max-width: 768px) {
+.Typeetudiant {
+      flex-direction: column;
+    border-bottom: 1px solid rgba(168, 75, 255, 0.562);
+    padding-bottom: 40px;
+    margin: 40px auto;
+    }
+        .Typeetudiant .description {
+            width: 100%;
+            margin: 0px 10px;
+        }
+        .Typeetudiant .description .titre{
+          
+            margin:20px 0px ;
+        }
+                .Typeetudiant .description .text {
+                    margin: 0px;
+                }
+        .Typeetudiant .image {
+            width: 100%;
+        }
+                .types .Type22{
+            flex-direction: column-reverse;
+        }
+ }

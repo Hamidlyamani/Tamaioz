@@ -1,0 +1,685 @@
+ .pagedebonvenue {
+
+     display: flex;
+     justify-content: space-between;
+     padding: 120px 0px 0px 0px;
+
+ }
+
+ .pagedebonvenue .titre_intro_button {
+     width: 50%;
+     display: flex;
+     flex-direction: column;
+
+ }
+
+ .pagedebonvenue .titre_intro_button .titre {
+     font-size: 2em;
+     color: var(--primary);
+     margin: 40px 0px;
+     font-family: 'yellix-Black';
+
+ }
+
+ .pagedebonvenue .titre_intro_button .intro {
+     width: 80%;
+     font-size: larger;
+     font-family: 'yellix-semibold';
+     margin-bottom: 20px;
+ }
+
+ .titrenumbre {
+
+     text-align: center;
+     width: 100%;
+     margin: auto;
+     font-family: Arial, Helvetica, sans-serif;
+     font-weight: 900;
+     stroke: 1;
+ }
+
+ .pagedebonvenue .titre_intro_button .button1 {
+     width: auto;
+     padding: 10px;
+     outline: none;
+     background-color: var(--secondary);
+     border-radius: 5px;
+     border: none;
+     text-transform: uppercase;
+     margin-top: 60px;
+     font-size: 20px;
+     font-weight: 900;
+     box-shadow: 1px 1px 10px var(--secondary);
+ }
+
+
+
+ .images {
+     display: flex;
+     width: 50%;
+     justify-content: space-between;
+     align-items: center;
+     background-color: #ffffff;
+ }
+
+ .images .divimg {
+     height: 440px;
+     position: relative;
+     display: flex;
+     margin: 0px;
+     justify-content: space-between;
+     justify-items: center;
+     flex: 1;
+     transition: flex 0.4s ease;
+     z-index: 55;
+ }
+
+ .images .imag2 {
+
+     order: 2;
+ }
+
+ .images .imag3 {
+
+     order: 3;
+ }
+
+ .images .imag1 {
+     flex: 2;
+     order: 1;
+ }
+
+ .images:hover .divimg:hover {
+     flex: 2;
+ }
+
+ .images:hover .divimg:hover~.imag1 {
+     flex: 1;
+     background-color: rgb(69, 245, 0)(223, 0, 0);
+ }
+
+ .images .divimg .contain {
+     border: 1px solid var(--primary);
+     border-radius: 20px;
+     border-top-left-radius: 190px;
+     border-top-right-radius: 190px;
+     /* border-radius: 20px; */
+     overflow: hidden;
+     width: 90%;
+     position: relative;
+     transition: flex 1s ease;
+     margin: 0px;
+ }
+
+
+
+
+
+ .images div .contain .imge {
+     position: absolute;
+     left: -150px;
+     bottom: 0px;
+     width: 440px;
+     transition: left 0.4s ease;
+ }
+
+ .images .divimg:hover .imge {
+     position: absolute;
+     left: -100px;
+     bottom: 0px;
+ }
+
+ /*  image1 ---------*/
+ .images:hover .divimg:hover~.imag1 .contain .img1 {
+     position: absolute;
+     left: -140px;
+ }
+
+ .images div .contain .img1 {
+     position: absolute;
+     left: -80px;
+     bottom: 0px;
+     bottom: 0px;
+     width: 440px;
+     transition: left 0.4s ease;
+ }
+
+
+ /* --------- image1 */
+
+ /* -------- debut info_img------- */
+ .images div .contain .info {
+     position: absolute;
+     height: 7rem;
+     bottom: 1%;
+     width: 80%;
+     margin: 8% 10%;
+     padding: 3%;
+     color: #ffffff;
+     display: flex;
+     flex-direction: column;
+     justify-content: space-between;
+     border-radius: 8px;
+     background-color: rgba(36, 2, 48, 0.316);
+     box-shadow: 1px 2px 6px var(--primary);
+ }
+
+ .images div .contain .ville_star {
+     display: flex;
+     justify-content: space-between;
+ }
+
+ .images div .contain .matier {
+     transform: rotate(-90deg);
+     z-index: 5;
+     position: absolute;
+     font-size: 1.8em;
+     left: -40%;
+     letter-spacing: 2px;
+
+     text-transform: uppercase;
+     bottom: 28%;
+     width: 210px;
+     color: var(--light3);
+     font-family: 'yellix-extrabold';
+     transition: transform 0.4s ease, color 0.4s ease, bottom 0.4s ease;
+ }
+
+ .images .divimg:hover .matier {
+     transform: rotate(0deg);
+     color: #ffffff;
+     left: 13%;
+     bottom: 16%;
+     font-size: 1.3em;
+ }
+
+ .images .divimg .info h5,
+ .images .divimg .info .ville_star {
+     display: none;
+ }
+
+ .images .divimg:hover .info h5,
+ .images .divimg:hover .info .ville_star {
+     display: flex;
+ }
+
+ /* ------------- */
+ .images div .contain .matier1 {
+     transform: rotate(0deg);
+     position: absolute;
+     margin: 0px;
+     left: 13%;
+     color: #ffffff;
+     bottom: 16%;
+     font-size: 1.4em;
+ }
+
+ .images .imag1 .info h5,
+ .images .imag1 .info .ville_star {
+     display: flex;
+ }
+
+
+ .images .imag1:hover .img1 {
+     left: -80px;
+ }
+
+
+ .images:hover .divimg:hover~.imag1 .info h5,
+ .images:hover .divimg:hover~.imag1 .info .ville_star {
+     display: none;
+ }
+
+ .images .divimg .contain1:hover .matier1 {
+     transform: rotate(0deg);
+     left: 13%;
+     color: #ffffff;
+     bottom: 16%;
+     font-size: 1.4em;
+ }
+
+ .images:hover div .contain .matier1 {
+     transform: rotate(-90deg);
+     font-size: 1.8em;
+     left: -25%;
+     bottom: 28%;
+     color: var(--light3);
+ }
+
+ .images .divimg .contain1:hover .info h5,
+ .images .divimg .contain1:hover .info .ville_star {
+     display: flex;
+ }
+
+
+ /* ------------- */
+
+
+
+ /* -------- fin info_img------- */
+
+ /* ------------------------------------------fin de section de bonvenue -------------------------------------------*/
+
+
+ /* ------------------------------------------- debut de section de a propos tamaioz--------------------------------- */
+
+
+ .apropos_T_section_background {
+     background-color: var(--light2);
+     margin: 50px 0px;
+     padding: 20px;
+     width: 100%;
+ }
+
+ .apropos_T {
+     flex-direction: column;
+
+     padding: 10px;
+
+ }
+
+ .titre_apropos_T {
+
+     border-bottom: 3px solid var(--secondary);
+     justify-content: center;
+     font-size: 1.5em;
+     padding: 15px;
+     margin-bottom: 20px;
+     font-weight: bold;
+     text-align: center;
+ }
+
+ .text_apropos_T {
+     text-align: center;
+     padding: 10px;
+     font-size: 1.2em;
+ }
+
+ /* ------------------------------------------- fin de section de a propos tamaioz--------------------------------- */
+ /* ------------------------------------------- debut de section de etapes d'inscription a  tamaioz--------------------------------- */
+
+
+
+ .etapes .titre1 {
+     text-align: center;
+     border-bottom: 3px solid var(--secondary);
+     padding-bottom: 20px;
+     text-transform: uppercase;
+ }
+
+ .etapes .titre1 .block {
+     display: block;
+
+ }
+
+ .etapes .titre1 .block span {
+     color: var(--primary);
+     font-weight: 900;
+     font-size: 2em;
+ }
+
+ .etapes .cards {
+     display: flex;
+     margin: 30px auto;
+     justify-content: space-between;
+ }
+
+ .etapes .card {
+     padding: 5px;
+     outline: none;
+     flex-direction: column;
+     display: flex;
+     flex: 150px;
+     justify-content: center;
+     align-items: center;
+
+     height: 300px;
+ }
+
+ .etapes .card .image {
+     width: 100px;
+     margin: 10px;
+ }
+
+ .etapes .card .titre {
+     font-weight: 900;
+     color: var(--primary);
+     margin-bottom: 10px;
+ }
+
+ .etapes .card .description {
+     font-weight: 300;
+     font-size: 16px;
+ }
+
+ *,
+ *:before,
+ *:after {
+     box-sizing: inherit;
+ }
+
+ .w3-container {
+     margin: auto;
+     padding: 0.01em 16px;
+     width: 60%;
+     font-size: 15px;
+     line-height: 1.5;
+ }
+
+ .zigzag-timeline__item {
+     /* Used to position the milestone */
+     position: relative;
+
+     /* Border */
+     border-bottom: 1px solid #0404ec;
+
+     /* Take full width */
+
+     margin: auto;
+     /* Room for milestone */
+     padding-left: 48px;
+     padding-right: 48px;
+ }
+
+ p,
+ h3 {
+     display: block;
+     margin-block-start: 0em;
+     /* margin-block-end: 1em; */
+     margin-inline-start: 0px;
+     margin-inline-end: 0px;
+     padding-top: 8px;
+ }
+
+ .zigzag-timeline__milestone {
+     /* Absolute position */
+     position: absolute;
+     top: 50%;
+
+     /* Circle it */
+     border-radius: 10px;
+     height: auto;
+     font-weight: 600;
+     /* Misc */
+     background: var(--secondary);
+     text-align: center;
+     padding: 10px;
+     color: #fff;
+ }
+
+ /* Styles for even items */
+ .zigzag-timeline__item:nth-child(2n) {
+     border-left: 1px solid #71717A;
+
+ }
+
+ .zigzag-timeline__item:nth-child(2n) .zigzag-timeline__milestone {
+     left: 0;
+     transform: translate(-50%, -50%);
+ }
+
+ /* Styles for odd items */
+ .zigzag-timeline__item:nth-child(2n + 1) {
+     border-right: 1px solid #71717A;
+ }
+
+ .zigzag-timeline__item:nth-child(2n + 1) .zigzag-timeline__milestone {
+     right: 0;
+     transform: translate(50%, -50%);
+ }
+
+ .titrenumbre {
+     text-align: center;
+
+ }
+
+ .titrenumbre span {
+     height: 40px;
+     background-color: var(--primary);
+     display: block;
+     color: #ffffff;
+     border-radius: 50%;
+     margin: 10px 0px;
+     width: 40px;
+
+     font-size: 2rem;
+
+ }
+
+ /* ------------------------------------------- fin de section de etapes d'inscription a  tamaioz--------------------------------- */
+ .container {
+     overflow: hidden;
+ }
+
+ @media only screen and (min-width: 1440px) {
+     .images div .contain .matier {
+         left: -20%;
+     }
+
+     .images div .contain .matier1 {
+         left: 13%;
+     }
+ }
+
+ @media only screen and (max-width: 1199px) {
+
+     .images:hover div:hover .contain .matier {
+         left: 13%;
+     }
+
+     .images div .contain .matier {
+         left: -50%;
+     }
+
+     .images div .contain .matier1 {
+         left: 13%;
+     }
+
+     .divimg:hover~.imag1 .contain .matier1 {
+         left: -50%;
+     }
+
+
+     .w3-container {
+         width: 80%;
+     }
+
+     .w3-container {
+         width: 70%;
+     }
+
+     .footer1 .btn-primary {
+         position: relative;
+         width: 100%;
+     }
+
+ }
+
+ @media only screen and (max-width: 991px) {
+     .images .divimg {
+         height: 380px;
+     }
+
+     .images div .contain .imge {
+         width: 380px;
+     }
+
+     .images .divimg:hover .imge {
+         width: 380px;
+     }
+
+
+
+     .images div .contain .matier1 {
+         left: 13%;
+     }
+
+     .divimg:hover~.imag1 .contain .matier1,
+     .images:hover div .contain .matier1 {
+         left: -90%;
+     }
+
+     .images .divimg .contain1:hover .matier1 {
+         left: 13%;
+
+     }
+
+
+     .images div .contain .matier {
+         left: -90%;
+     }
+
+     .images div .contain .matier1 {
+         left: 13%;
+     }
+
+     .pagedebonvenue .titre_intro_button .titre {
+         font-size: 1.6em;
+         color: var(--primary);
+         margin: 20px 0px;
+     }
+
+     .pagedebonvenue .titre_intro_button .intro {
+         width: 80%;
+         font-size: larger;
+         font-family: 'yellix-regular';
+         margin-bottom: 16px;
+     }
+
+     .pagedebonvenue .titre_intro_button .button1 {
+         margin-top: 20px;
+         font-weight: 700;
+     }
+
+     .w3-container {
+         width: 60%;
+     }
+ }
+
+ @media only screen and (max-width: 768px) {
+     .container {
+         width: 100%;
+     }
+
+     .etapes .titre1 {
+         text-align: left;
+     }
+
+     .pagedebonvenue {
+         flex-direction: column-reverse;
+     }
+
+     .pagedebonvenue .titre_intro_button {
+         width: 100%;
+     }
+
+     .images {
+         display: flex;
+         width: 100%;
+     }
+
+     .pagedebonvenue .titre_intro_button .intro {
+         width: 100%;
+         text-align: center;
+     }
+
+     .pagedebonvenue .titre_intro_button .titre {
+         text-align: center;
+     }
+
+     .link_button {
+         text-align: center;
+     }
+
+     .divimg:hover~.imag1 .contain .matier1,
+     .images div .contain .matier {
+         left: -40%;
+     }
+
+     .images .matier1 {
+
+         left: 13%;
+
+     }
+
+     .images:hover .matier1 {
+
+         left: -40%;
+
+     }
+
+     .images .divimg .contain1:hover .matier1 {
+         left: 13%;
+
+     }
+
+     .titre_apropos_T {
+         text-align: left;
+     }
+
+     .text_apropos_T {
+         text-align: left;
+     }
+
+     .w3-container {
+         width: 100%;
+     }
+
+     .zigzag-timeline__item {
+         width: 90%;
+     }
+
+     .zigzag-timeline__item h3 {
+         font-size: 1.1em;
+     }
+        .images div .contain .matier1 {
+            left: 13%;
+        }
+
+ }
+
+ @media only screen and (max-width: 575px) {
+     .images:hover .matier1 {
+        left: -80%;
+     }
+.images div .contain .matier1 {
+    left: 13%;
+}
+     .pagedebonvenue .titre_intro_button .intro {
+         font-size: 1rem;
+     }
+
+     .pagedebonvenue .titre_intro_button .titre {
+         font-size: 1.4em;
+     }
+
+     .pagedebonvenue .titre_intro_button .button1 {
+
+         margin-top: 10px;
+         font-size: 16px;
+     }
+
+     .zigzag-timeline__item {
+         width: 80%;
+     }
+
+     .zigzag-timeline__item:nth-child(2n + 1) {
+         border-right: 1px solid #71717A;
+         padding-left: 0px;
+     }
+
+     .zigzag-timeline__item:nth-child(2n) {
+         border-left: 1px solid #71717A;
+         padding-right: 0px;
+     }
+ }
+ @media only screen and (max-width: 450px) {
+   
+    .divimg:hover~.imag1 .contain .matier1,
+    .images div .contain .matier {
+         left: -80%;
+     }
+         .images div .contain .matier1 {
+             left: 13%;
+         }
+ }

@@ -1,0 +1,142 @@
+.app-message-body{
+    min-height: 400px;
+}
+.message .app-wrapper {
+   min-width: 400px;
+
+    padding: 24px;
+    margin: auto;
+    border-radius: 10px;
+}
+
+.message .app-header {
+    border-radius: 10px 10px 0 0;
+    background: linear-gradient(#8300e3, #be88e6);
+    padding: 20px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #fff;
+
+
+}
+
+.message .message h2 {
+    font-size: 1.222rem;
+    font-weight: 800;
+}
+
+.message span.friend-status {
+    font-size: 0.666rem;
+}
+
+.message .app-message-body {
+    background-color: rgba(233, 233, 233, 0.6);
+    padding: 24px 16px 0;
+    font-size: 0.8rem;
+    overflow-y: auto;
+    max-height: 50vh;
+
+
+
+
+}
+
+.message .message-wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.message .message-wrapper.messageleft {
+    align-items: flex-start;
+
+    .message-meta {
+        justify-content: flex-start;
+    }
+}
+
+.message .message-wrapper.messageright {
+    align-items: flex-end;
+
+    .message-meta {
+        flex-direction: row-reverse;
+    }
+}
+
+.message .message {
+    max-width: 66.6%;
+    background-color: #fff;
+    padding: 8px;
+    border-radius: 5px;
+    box-shadow: 4px 4px rgba(200, 200, 200, 0.25);
+    font-size: 0.9rem;
+    display: flex;
+    flex: 1 auto;font-weight: 100;
+}
+
+.message .message-meta {
+    display: flex;
+    flex: 1 auto;
+    margin: 10px 5px 15px;
+
+    .message .sender-avatar {
+        width: 24px;
+        height: 24px;
+        border-radius: 9999px;
+        background: linear-gradient(180deg, #fb551c, #f7b633);
+        color: #fff;
+        line-height: 24px;
+        text-align: center;
+        font-size: 0.666rem;
+        font-weight: 600;
+    }
+
+    .timestamp {
+        /* color: #ff0000; */
+        font-size: 0.666rem;
+        line-height: 24px;
+        display: inline-block;
+        margin: 0 5px;
+    }
+}
+
+.message .app-input-area {
+    background-color: #fff;
+    border-radius: 0 0 10px 10px;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+
+
+}
+
+.message input[type=text] {
+    flex: 1 80%;
+    border: none;
+    padding: 0.33rem;
+    margin: auto 10px;
+    font: 0.9rem var(--font-face);
+    outline: none;
+}
+
+.message button[type=submit] {
+    flex: 1 5%;
+    border: none;
+    margin: 0 auto;
+    /*background: linear-gradient(45deg, #fb551c, #f7b633);*/
+    background-color: transparent;
+    outline: none;
+    cursor: pointer;
+
+
+}
+
+.message svg {
+    fill: #f59300;
+}
+
+button[type=submit]:hover {}
+
+svg {
+    fill: #f7b633;
+}

@@ -1,0 +1,350 @@
+html {
+    font-size: 16px;
+}
+
+.container11 * {
+    margin: 0px;
+    padding: 0px;
+}
+
+
+
+.container11 {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    z-index: -999;background:none !important;
+}
+
+
+
+
+.container11 .cards-wrapper1 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+} 
+
+.container11 .cards__container1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 30rem;
+   
+}
+
+.container11 .box {
+
+    width: 33rem;
+    height: 23rem;
+    box-shadow: 0px 5px 6px 0px #ff7300;
+border-radius: 5px;
+    display: flex;
+    background-color: var(--light3);
+    justify-content: center;
+    align-items: center;
+    position: relative;z-index: 11;
+    transition: 1s all;
+    flex-direction: row;
+}
+
+
+
+.container11 .box:nth-child(2n) {
+    transform: scale(0.75);
+    z-index: 1;
+    margin-left: -575px;
+height: 18rem;
+width: 30rem;
+}
+
+.container11 .box:nth-child(2) {
+  left: 20%;
+width: 30rem;
+    z-index: 3;
+    transform: scale(0.85);height: 18rem;
+}
+
+.container11 .box:nth-child(4) {
+  left: -25%;transform: scale(0.75);
+width: 30rem;
+  display: none;height: 18rem;
+}
+
+.container11 .box:nth-child(4n + 1) {
+width: 30rem;
+    transform: scale(0.85);
+    z-index: 3;height: 18rem;
+}
+
+.container11 .box:nth-child(1) {
+width: 30rem;
+    transform: scale(0.75);height: 18rem;
+    z-index: 0;
+   
+}
+
+.container11 .box:nth-child(5) {
+width: 30rem;
+left: -20%;
+    height: 18rem;
+}
+
+
+
+
+
+
+
+
+
+.card__text-content {
+    text-align: center;
+    width: 75%;
+    background-color: #d5b9e2;
+}
+
+.card__title {
+    padding: 1rem;
+}
+
+.box--hide {
+    display: none;
+}
+
+.move-out-from-left {
+    animation: moveOutLeft 0.5s ease-in-out;
+}
+
+.move-out-from-right {
+    animation: moveOutRight 0.5s ease-in-out;
+}
+
+.move-to-position5-from-left {
+    animation: moveToP5Left 0.5s ease-in-out;
+}
+
+.move-to-position4-from-left {
+    animation: moveToP4Left 0.5s ease-in-out;
+}
+
+.move-to-position3-from-left {
+    animation: moveToP3Left 0.5s ease-in-out;
+}
+
+.move-to-position2-from-left {
+    animation: moveToP2Left 0.5s ease-in-out;
+}
+
+
+.move-to-position1-from-left {
+    animation: moveToP1Left 0.5s ease-in-out;
+}
+
+.move-to-position5-from-right {
+    animation: moveToP5Right 0.5s ease-in-out;
+}
+
+.move-to-position4-from-right {
+    animation: moveToP4Right 0.5s ease-in-out;
+}
+
+.move-to-position3-from-right {
+    animation: moveToP3Right 0.5s ease-in-out;
+}
+
+.move-to-position2-from-right {
+    animation: moveToP2Right 0.5s ease-in-out;
+}
+
+.move-to-position1-from-right {
+    animation: moveToP1Right 0.5s ease-in-out;
+}
+
+@keyframes moveOutLeft {
+    0% {
+        transform: scale(0.75) translateX(0%);
+        opacity: 1;
+    }
+
+    50% {
+        transform: scale(0.5) translateX(-150%);
+        opacity: 0.5;
+    }
+
+    100% {
+        transform: scale(0.25) translateX(0%);
+        opacity: 0;
+    }
+}
+
+@keyframes moveOutRight {
+    0% {
+        transform: scale(0.75) translateX(0%);
+        opacity: 1;
+    }
+
+    50% {
+        transform: scale(0.5) translateX(150%);
+        opacity: 0.5;
+    }
+
+    100% {
+        transform: scale(0.25) translateX(0%);
+        opacity: 0;
+    }
+}
+
+
+@keyframes moveToP5Left {
+    from {
+        transform: scale(0.75) translateX(100%);
+    }
+
+    to {
+        transform: scale(0.75) translateX(0);
+    }
+}
+
+@keyframes moveToP4Left {
+    from {
+        transform: scale(0.75) translateX(100%);
+    }
+
+    to {
+        transform: scale(0.85) translateX(0);
+    }
+}
+
+@keyframes moveToP3Left {
+    from {
+        transform: scale(0.85) translateX(100%);
+    }
+
+    to {
+        transform: scale(1) translateX(0);
+    }
+}
+
+@keyframes moveToP2Left {
+    from {
+        transform: scale(1) translateX(100%);
+    }
+
+    to {
+        transform: scale(0.85) translateX(0);
+    }
+}
+
+@keyframes moveToP1Left {
+    from {
+        transform: scale(0.85) translateX(100%);
+    }
+
+    to {
+        transform: scale(0.75) translateX(0);
+    }
+}
+
+
+@keyframes moveToP1Right {
+    from {
+        transform: scale(0.75) translateX(-100%);
+    }
+
+    to {
+        transform: scale(0.75) translateX(0);
+    }
+}
+
+@keyframes moveToP2Right {
+    from {
+        transform: scale(0.75) translateX(-100%);
+    }
+
+    to {
+        transform: scale(0.85) translateX(0);
+    }
+}
+
+@keyframes moveToP3Right {
+    from {
+        transform: scale(0.85) translateX(-100%);
+    }
+
+    to {
+        transform: scale(1) translateX(0);
+    }
+}
+
+@keyframes moveToP4Right {
+    from {
+        transform: scale(1) translateX(-100%);
+    }
+
+    to {
+        transform: scale(0.85) translateX(0);
+    }
+}
+
+@keyframes moveToP5Right {
+    from {
+        transform: scale(0.85) translateX(-100%);
+    }
+
+    to {
+        transform: scale(0.75) translateX(0);
+    }
+}
+
+/* -------------------------------------------------- my custem css ---------------------------------- */
+
+
+.carousal {
+    width: 100%;
+    border-bottom: 2px solid var(--primary);
+    border-top: 2px solid var(--primary);
+    z-index: -999;
+}
+
+.carousal .titre h2 {
+    font-weight: 600;
+    color: var(--primary);
+    margin: 20px auto;
+    text-align: center;
+}
+
+.carousal .titre p {
+    text-align: center;
+    font-size: 1.2em;
+}
+
+.box {
+    flex-direction: column;
+}
+
+.auteur { 
+    background-color: aqua;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;width: 100%;
+    margin-left:20px ;
+    height: 70%;
+}
+
+.auteur img {
+    width: 100%;
+    border: solid 1px var(--light1);
+  margin: 0px 0px;
+height: 100%;
+   
+}
+.comontaire{
+    margin: 5px 30px;
+    font-size: 1em;
+    
+width: 100% !important;
+}
+.rate img{
+    width: 30px;
+}

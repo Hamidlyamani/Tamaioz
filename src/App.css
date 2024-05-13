@@ -1,0 +1,41 @@
+:root {
+    --primary: #8300e3;
+    --secondary: #ffc01a;
+    --light1: #be88e6;
+    --light2: #d8cae4;
+    --light3: #f6effb;
+}
+
+@font-face {
+    font-family: 'yellix-light';
+    src: url(fonts/Yellix-Light.ttf) format('woff');
+}
+
+
+
+@font-face {
+    font-family: 'yellix-Black';
+    src: url(fonts/Yellix-Black.ttf) format('woff');
+}
+
+@font-face {
+    font-family: 'yellix-regular';
+    src: url(fonts/Yellix-Regular.ttf) format('woff');
+}
+
+@font-face {
+    font-family: 'yellix-extrabold';
+    src: url(fonts/Yellix-ExtraBold.ttf) format('woff');
+}
+
+@font-face {
+    font-family: 'yellix-bold';
+    src: url(fonts/Yellix-Bold.ttf) format('woff');
+}
+
+@font-face {
+    font-family: 'yellix-SemiBold';
+    src: url(fonts/Yellix-SemiBold.ttf) format('woff');
+}
+
+

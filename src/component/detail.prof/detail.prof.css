@@ -1,0 +1,17 @@
+.rs-team-Single{
+margin:  40px auto;
+}
+.con-info .title span{
+    margin: 20px auto;
+    color: var(--secondary);
+}
+
+
+.images-part{
+overflow: hidden;
+
+}
+.images-part img{
+    width: 400px;
+    border-radius: 10px;
+}

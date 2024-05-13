@@ -1,0 +1,278 @@
+/* * {
+  
+} */
+.navbar2 {
+
+
+   position: absolute;
+   position: fixed;
+   z-index: 9999995599;
+   width: 100%;
+   top: 0px;
+   left: 0px;
+   height: 60px;
+}
+
+.navbar {
+   background-color: #ffffff8e;
+   height: 60px;
+   position: fixed;
+   padding-top: 7px;
+   z-index: 9999999;
+   box-shadow: 0.1px 0.1px 6px var(--light1);
+   position: fixed;
+   font-family: 'yellix-regular';
+   font-family: 'yellix-bold' !important;
+
+   position: absolute;
+   position: fixed;
+   z-index: 99999;
+}
+
+.navbar-brand img {
+   width: 70px;
+   margin: 5px auto;
+}
+
+.navbar-collapse {
+   flex-grow: 0;
+   flex-shrink: 0;
+   width: auto;
+}
+
+.recherche {
+   content: url('../../assets/search-profile.png');
+   width: 0px;
+   height: 0px;
+   display: none;
+   padding: 5px;
+   margin: 5px 345px;
+}
+
+.serchicon {
+   width: 30px;
+   height: 30px;
+   border: 5px;
+   padding: 5px;
+   margin: 0px 30px;
+}
+
+.serchicon img {
+   width: 20px;
+}
+
+.serchicon:hover .recherche {
+   width: 256px;
+   display: flex;
+   outline: nane;
+   border: 1px solid var(--primary);
+   border-radius: 5px;
+   display: noned;
+   height: 30px;
+   padding: 5px;
+   margin: 5px 15px;
+   
+}
+
+.recherche:focus {
+   outline: none;
+   border: solid 2px var(--primary)
+}
+
+.nav-link {
+   font-size: 16px;
+   text-transform: uppercase;
+   display: flex;
+   font-weight: 600;
+   margin: 20px 10px;
+   position: relative;
+   transition: all 300ms cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+.nav-link :hover {
+   background-color: #bd88e62f;
+  
+}
+
+.nav-link:after,
+.nav-link:before {
+   content: "";
+   position: absolute;
+   width: 0%;
+   display: block;
+   height: 2px;
+   transition: all 0.3s ease;
+   margin-top: 0px;
+   transition: all 300ms ease-in;
+}
+
+.nav-link:after {
+   bottom: 5%;
+   left: 0;
+}
+
+.nav-link:before {
+   top: 5%;
+   right: 0;
+}
+
+.nav-link:hover::after {
+   width: 100%;
+   height: 2px;
+   bottom: 0%;
+   background-color: var(--primary);
+}
+
+.nav-link:hover::before {
+   width: 100%;
+   height: 2px;
+   top: 0%;
+   background-color: var(--primary);
+}
+
+.connecter {
+   margin: 5px 15px;
+   border-color: var(--primary);
+   border: solid 2px;
+   color: var(--primary);
+   padding: 5px 10px;
+   font-weight: 600;
+   border-radius: 5px;
+   margin-right: 10px;
+}
+
+.connecter:hover {
+   color: rgb(255, 255, 255);
+   background-color: var(--light1);
+   border-color: var(--primary);
+}
+
+.inscrire {
+   margin: 5px 0px 5px 15px;
+   color: var(--primary);
+   border: none;
+   padding: 5px 10px;
+   font-weight: 600;
+   border-radius: 5px;
+}
+
+.inscrire:hover {
+   color: rgb(255, 255, 255);
+   background-color: var(--light1);
+   border-color: var(--primary);
+}
+
+
+#wrap1 {
+
+   display: inline-block;
+   position: relative;
+   height: 30px;
+   margin: 20px auto;
+   padding: 0;
+   position: relative;
+}
+
+#wrap1 input[type="text"] {
+   height: 30px;
+   font-size: 16px;
+   display: inline-block;
+   font-weight: 100 !important;
+   border: none;
+   outline: none;
+   color: #000;;
+   padding: 3px;
+   padding-right: 50px;
+   width: 0px;
+   position: absolute;
+   top: 0;
+   right: 0;
+   background: none;
+   z-index: 3;
+   transition: width .4s cubic-bezier(0.000, 0.795, 0.000, 1.000);
+   cursor: pointer;
+
+}
+
+#wrap1 input[type="text"]:focus:hover {
+   border-bottom: 2px solid var(--light1);
+
+
+}
+
+#wrap1 input[type="text"]:focus {
+   width: 248px;
+   z-index: 1;
+   border-bottom: 2px solid var(--light1);
+   cursor: text;
+}
+
+#wrap1 input[type="submit"] {
+   height: 30px;
+   width: 30px;
+   display: inline-block;
+   color: var(--light1);
+   background: url(../../assets/search.png) center center no-repeat;
+   text-indent: -10000px;
+   border: none;
+   position: absolute;
+   top: 0;
+   right: 0;
+   z-index: 9999;
+   border-bottom: 2px solid var(--light1);
+   z-index: 2;
+   border-right: 2px solid var(--light1);
+   cursor: pointer;
+   opacity: 0.7;
+   cursor: pointer;
+
+   transition: opacity .4s ease;
+}
+
+#wrap1 input[type="submit"]:hover {
+   opacity: 1;
+}
+
+.navbar-toggler{
+   border: none !important;
+}
+.navbar-toggler:focus {
+   text-decoration: none;
+   outline: 0;
+   box-shadow: none !important;
+}
+@media only screen and (max-width: 991px) {
+.navbar{
+   padding-top: 0px !important;
+}
+.navbar-brand img {
+   width: 60px;
+   margin: 0px auto;
+}
+.navbar-collapse{
+   background-color: rgba(var(--bs-tertiary-bg-rgb), var(--bs-bg-opacity)) !important;
+   padding: 20px 10px;
+}
+.nav-link {
+   margin: auto;
+}
+.navbar-collapse button{
+display: block;
+margin:10px auto ;
+}
+#wrap1 input[type="text"] {
+   border-bottom: 2px solid var(--light1);
+
+
+}
+
+#wrap1 input[type="text"] {
+   width: 245px;
+   z-index: 1;
+   border-bottom: 2px solid var(--light1);
+   cursor: text;
+}
+#wrap1 form{
+       height: 50px;
+       width: 250px;
+}
+}
