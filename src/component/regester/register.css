@@ -116,6 +116,7 @@
     margin-top: 15px;
     text-transform: uppercase;
     margin-bottom: 50x;
+    padding:0px 20px 10px 20px;
 }
 
 .regest h2 .bx-menu {
@@ -137,11 +138,11 @@
 }
 
 .regest .container {
-    width: 90%;
+    width: 100%;
     position: relative;
     margin: 0 auto;
     background-color: #fff;
-    border: var(--primary) 2px solid;
+ 
 }
 
 .regest .signup-img {
@@ -362,7 +363,11 @@
 .regest #submit:hover {
     background-color: #cd5300;
 }
-
+.modal.show .modal-dialog {
+    transform: none;
+    max-width: 80%;
+    margin-top: 70px;
+}
 @media screen and (max-width: 992px) {
     .regest .container {
         width: calc(100% - 40px);
@@ -450,8 +455,7 @@
 
 /*# sourceMappingURL=style.css.map */
 .regest {
-    margin-top: 80px;
-    border-radius: 50px;
+
 
 }
 

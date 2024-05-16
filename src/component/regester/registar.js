@@ -8,12 +8,18 @@ import { faX } from '@fortawesome/free-solid-svg-icons'
 import Modal from 'react-bootstrap/Modal';
 
 const Registar = (props) => {
-    const [show, setShow] = useState(props.show);
+
     const handleIconClickInsideComponent = () => {
         props.hendelRegist();
     };
-   
     const [currentStep, setCurrentStep] = useState(props.etap);
+    const [show1, setShow1] = useState(props.show);
+    const handleClose = () => {
+        setShow1(false);
+        if (props.onClose) { // Check if onClose prop is provided
+            props.onClose(); // Call the callback function
+        }
+    };
 
     const handleNextStep = () => {
         setCurrentStep(currentStep + 1);
@@ -26,22 +32,20 @@ const Registar = (props) => {
     }, []);
     // const handleClose = () => setShow(false);
     return (
-        < Modal show={show}>
-            <Modal.Header closeButton>
-                <Modal.Title>Modal heading</Modal.Title>
-            </Modal.Header>
-            <Modal.Body>
-                <div className='connexion'>
-                    <div className="main regest">
-                        <div className="container">
+
+        < Modal show={show1}>
+            <div className='container'>
+                <Modal.Body>
+                    <div className='connexion'>
+                        <div className="main regest">
+                            <h2>{currentStep === '1' ? "FORMULAIRE D INSCRIPTION ÉTUDIANT" : "FORMALITÉ DE RÉSERVATION D'UN COURS"}<FontAwesomeIcon onClick={handleClose} className='bx bx-menu' id="btn" icon={faX} /></h2>
+                            <div className='reteur'></div>
                             <div className="signup-content">
                                 <div className="signup-img">
                                     <img src={segnup} alt="" />
                                 </div>
                                 <div className="signup-form">
-                                    <h2>{currentStep === '1' ? "FORMULAIRE D INSCRIPTION ÉTUDIANT" : "FORMALITÉ DE RÉSERVATION D'UN COURS"}<FontAwesomeIcon className='bx bx-menu' id="btn" icon={faX} /></h2><div className='reteur'>
 
-                                    </div>
                                     {currentStep === '1' ? <Form1 handleNextStep={handleNextStep} detail2={props.detail1} handleIconClickInsideComponent2={handleIconClickInsideComponent} /> : <Form2 handleIconClickInsideComponent2={handleIconClickInsideComponent} profid={props.profid} />}
 
 
@@ -51,11 +55,9 @@ const Registar = (props) => {
                                 </div>
                             </div>
                         </div>
-
                     </div>
-                </div>
-            </Modal.Body>
-
+                </Modal.Body>
+            </div>
         </Modal >
 
 

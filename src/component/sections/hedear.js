@@ -11,18 +11,16 @@ import { useState, useEffect, useRef } from 'react';
 
 function Hedear() {
   const [connexion, setConnexion] = useState(false);
-  const [show, setShow] = useState(false);
+
   const hendelcon = () => {
     setConnexion(!connexion);
-    setRegist(false);
   }
-  const [Regist, setRegist] = useState(false);
-  const hendelRegist = () => {
-    setShow(true);
-    handleNavCollapse();
-  }
-  const [isNavCollapsed, setIsNavCollapsed] = useState(false);
+  const [show, setShow] = useState(false);
+  const handleShow = () => setShow(true);
+  const handleCloseModal = () => setShow(false); 
 
+
+  const [isNavCollapsed, setIsNavCollapsed] = useState(false);
   const handleNavCollapse = () => setIsNavCollapsed(!isNavCollapsed);
 
   return (
@@ -49,13 +47,13 @@ function Hedear() {
               <Link className='nav-link' to="/prof" onClick={handleNavCollapse}>nos professeurs</Link>
               <Link className='nav-link' to="/about" onClick={handleNavCollapse}>À PROPOS</Link>
             </Nav>
-            <button className="inscrire" onClick={hendelRegist}>S'inscrire</button>
+            <button className="inscrire" onClick={handleShow}>S'inscrire</button>
             <button className="connecter" onClick={hendelcon}>Se Connecter</button>
           </Navbar.Collapse>
         </Container>
       </Navbar>
       {connexion ? <Connixion hendelcon={hendelcon} /> : null}
-      <Registar hendelRegist={hendelRegist} show={show} etap='1' detail1="detail2" />
+      {show ? <Registar show={show} etap='1' detail1="detail2" onClose={handleCloseModal} /> : null}
     </div>
   )
 }
