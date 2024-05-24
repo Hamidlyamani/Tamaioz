@@ -4,6 +4,8 @@ import axios from 'axios';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faX } from '@fortawesome/free-solid-svg-icons'
 import { useNavigate } from "react-router-dom";
+import { signInWithEmailAndPassword } from 'firebase/auth';
+import { auth } from '../../lib/firebaseConfig';
 
 
 
@@ -30,8 +32,17 @@ const Connixion = ({ hendelcon }) => {
     }
 
 
-    const submitForm = (e) => {
+    const submitForm = async (e) => {
         e.preventDefault();
+
+        try {
+
+            await signInWithEmailAndPassword(auth, data.email, data.password)
+            console.log("sign in with email and password");
+
+        } catch (error) {
+            console.log(error.message);
+        }
         const dataSend = {
             email: data.email,
             password: data.password,
@@ -46,7 +57,7 @@ const Connixion = ({ hendelcon }) => {
                     setidappt("Connecte avec succes");
                 sessionStorage.setItem('iduser', idapp);
                 navigate('/room');;
-               
+
                 setData({
                     email: "",
                     password: "",
@@ -85,7 +96,7 @@ const Connixion = ({ hendelcon }) => {
                     <div className={etud ? "" : 'isnow2'} onClick={handleClickprof}>professeur</div>
                 </div>
                 <form action='' method='post' onSubmit={submitForm}>
-                    <input type='hidden' className={prof ? 'active' : ''} onChange={handleChange} value={data.type} id='type' name="type" />
+                    <input type='hidden' className={prof ? 'active' : ''} id='type' name="type" />
                     <input type='text' className={prof ? 'active' : ''} onChange={handleChange} value={data.email} id='email' name="email" placeholder='Votre adresse e-mail' />
                     <input type='password' className={prof ? 'active' : ''} onChange={handleChange} value={data.password} id='password' name="password" placeholder='Mot de passe' />
                     <input type='submet' value='SE CONNECTER' onClick={submitForm} className={prof ? 'submet active' : 'submet'} />

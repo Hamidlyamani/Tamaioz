@@ -14,24 +14,22 @@ import Message from '../messanger/message'
 import JitsiMeet from './jitsimeeting'
 import Listprofs from './listprofs'
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
-import { useLocation } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import File from './file.'
+import withAuth from '../withAuth'
 
 
 
 function Room() {
-
-    const location = useLocation();
-    const variableValue = location.state?.variable;
-
+  const location = useLocation();
+  const variableValue = location.state?.variable;
   const [activepage, setactivepage] = useState("acc");
   const [isActive, setIsActive] = useState(false);
-  const [data, setdata] = useState([]);  
-  let navigate = useNavigate()
+  const [data, setdata] = useState([]);
+  const navigate = useNavigate()
 
   useEffect(() => {
-      const fetchData = async () => {
+    const fetchData = async () => {
       try {
         const response = await axios.post('http://localhost/tamaioz/buld_room.php',
           { idroom: variableValue, });
@@ -43,13 +41,13 @@ function Room() {
     };
 
     fetchData();
-  }, );
-  // []
+  }, []);
+  // 
 
-  
+
   const signout = () => {
     navigate('/');
-   sessionStorage.removeItem('iduser');
+    sessionStorage.removeItem('iduser');
     window.location.reload()
   }
 
@@ -72,7 +70,7 @@ function Room() {
   return (
     <div className='contanerglobal'>
       <div className='sidebar1 containerrooom'  >
-        <div className={isActive ? 'sidebar open' : 'sidebar'}>
+        <div className={!isActive ? 'sidebar open' : 'sidebar'}>
           <div className="logo-details">
             <i className='bx bxl-c-plus-plus icon'></i>
             <div className="logo_name"><img src={logo} alt="" /></div>
@@ -114,7 +112,7 @@ function Room() {
               </span>
               <span className="tooltip">SalleVirtuelle</span>
             </li>
-            
+
             <li className="profile">
               <div className="profile-details">
                 <img src={img1} alt="profileImg" />
@@ -130,12 +128,12 @@ function Room() {
           </ul>
         </div>
       </div>
-      <section className={isActive ? ' section section-sedbar' : 'section'}>
+      <section className={!isActive ? ' section section-sedbar' : 'section'}>
         <h6 className='titre1'>Bienvenue <span className='span'>Mr {data[1]}  </span> dans votre espace d'apprentissage personnalisé.</h6>
 
         {activepage === "acc" && <Acc />}
-        {activepage === "prof" && <Listprofs data={data }/>}
-        {activepage === "message" && <Message data={data[2]}/>}
+        {activepage === "prof" && <Listprofs data={data} />}
+        {activepage === "message" && <Message data={data[2]} />}
         {activepage === "vedio" && <JitsiMeet />}
         {activepage === "file" && < File />}
 
@@ -146,4 +144,4 @@ function Room() {
   )
 }
 
-export default Room
+export default withAuth(Room);

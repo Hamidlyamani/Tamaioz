@@ -25,13 +25,13 @@ export default function Foeter() {
                             <Link className="btn btn-link" to='/about'>À propos de nous</Link>
                             <Link className="btn btn-link" to='/prof'>Professeurs</Link>
                             <Link className="btn btn-link" to='/'>Connexion</Link>
-                        
+
                         </div>
                         <div className="col-lg-3 col-md-6">
                             <h4 className="text-white mb-3">Contact</h4>
-                            <p className="mb-2">+0678781280</p>
+                            <p className="mb-2">(+212)678781280</p>
                             <p className="mb-2">info@tamaioz.com</p>
-                          
+
                         </div>
 
                         <div className="col-lg-3 col-md-6">

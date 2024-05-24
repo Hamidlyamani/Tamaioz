@@ -71,7 +71,7 @@
    height: 30px;
    padding: 5px;
    margin: 5px 15px;
-   
+
 }
 
 .recherche:focus {
@@ -88,9 +88,10 @@
    position: relative;
    transition: all 300ms cubic-bezier(0.075, 0.82, 0.165, 1);
 }
+
 .nav-link :hover {
    background-color: #bd88e62f;
-  
+
 }
 
 .nav-link:after,
@@ -179,7 +180,8 @@
    font-weight: 100 !important;
    border: none;
    outline: none;
-   color: #000;;
+   color: #000;
+   ;
    padding: 3px;
    padding-right: 50px;
    width: 0px;
@@ -232,47 +234,59 @@
    opacity: 1;
 }
 
-.navbar-toggler{
+.navbar-toggler {
    border: none !important;
 }
+
 .navbar-toggler:focus {
    text-decoration: none;
    outline: 0;
    box-shadow: none !important;
 }
+
 @media only screen and (max-width: 991px) {
-.navbar{
-   padding-top: 0px !important;
-}
-.navbar-brand img {
-   width: 60px;
-   margin: 0px auto;
-}
-.navbar-collapse{
-   background-color: rgba(var(--bs-tertiary-bg-rgb), var(--bs-bg-opacity)) !important;
-   padding: 20px 10px;
-}
-.nav-link {
-   margin: auto;
-}
-.navbar-collapse button{
-display: block;
-margin:10px auto ;
-}
-#wrap1 input[type="text"] {
-   border-bottom: 2px solid var(--light1);
+   .navbar {
+      padding-top: 0px !important;
+   }
+
+   .navbar-brand img {
+      width: 60px;
+      margin: 0px auto;
+   }
+
+   .navbar-collapse {
+      background-color: rgba(var(--bs-tertiary-bg-rgb), var(--bs-bg-opacity)) !important;
+      padding: 20px 10px;
+   }
+
+   .nav-link {
+      margin: auto;
+   }
+
+   .navbar-collapse button {
+      display: block;
+      margin: 10px auto;
+   }
+
+   #wrap1 input[type="text"] {
+      border-bottom: 2px solid var(--light1);
 
 
-}
+   }
 
-#wrap1 input[type="text"] {
-   width: 245px;
-   z-index: 1;
-   border-bottom: 2px solid var(--light1);
-   cursor: text;
-}
-#wrap1 form{
-       height: 50px;
-       width: 250px;
-}
+   #wrap1 input[type="text"] {
+      width: 245px;
+      z-index: 1;
+      border-bottom: 2px solid var(--light1);
+      cursor: text;
+   }
+
+   #wrap1 form {
+      height: 50px;
+      width: 250px;
+   }
+
+   .collapse_custom {
+      display: none;
+   }
 }

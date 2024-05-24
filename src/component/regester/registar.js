@@ -8,7 +8,6 @@ import { faX } from '@fortawesome/free-solid-svg-icons'
 import Modal from 'react-bootstrap/Modal';
 
 const Registar = (props) => {
-
     const handleIconClickInsideComponent = () => {
         props.hendelRegist();
     };
@@ -16,8 +15,8 @@ const Registar = (props) => {
     const [show1, setShow1] = useState(props.show);
     const handleClose = () => {
         setShow1(false);
-        if (props.onClose) { // Check if onClose prop is provided
-            props.onClose(); // Call the callback function
+        if (props.onClose) { 
+            props.onClose(); 
         }
     };
 
@@ -30,7 +29,8 @@ const Registar = (props) => {
             handleNextStep()
         }
     }, []);
-    // const handleClose = () => setShow(false);
+
+
     return (
 
         < Modal show={show1}>
@@ -41,17 +41,10 @@ const Registar = (props) => {
                             <h2>{currentStep === '1' ? "FORMULAIRE D INSCRIPTION ÉTUDIANT" : "FORMALITÉ DE RÉSERVATION D'UN COURS"}<FontAwesomeIcon onClick={handleClose} className='bx bx-menu' id="btn" icon={faX} /></h2>
                             <div className='reteur'></div>
                             <div className="signup-content">
-                                <div className="signup-img">
-                                    <img src={segnup} alt="" />
-                                </div>
+
                                 <div className="signup-form">
 
                                     {currentStep === '1' ? <Form1 handleNextStep={handleNextStep} detail2={props.detail1} handleIconClickInsideComponent2={handleIconClickInsideComponent} /> : <Form2 handleIconClickInsideComponent2={handleIconClickInsideComponent} profid={props.profid} />}
-
-
-                                    <div className="form-submit">
-
-                                    </div>
                                 </div>
                             </div>
                         </div>

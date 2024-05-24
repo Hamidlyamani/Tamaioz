@@ -12,16 +12,10 @@ import hero from '../../assets/hero.png';
 import preparing from '../../assets/preparing-exam.png';
 import women from '../../assets/women g.png';
 import language from '../../assets/language-learning (2).png';
-
 import star from '../../assets/stars.svg'
 import { Link } from 'react-router-dom';
 
-
-
 function Accueil() {
-
-
-
   return (
     <div className='centent_accueil'>
       <div className="pagedebonvenue container">
@@ -33,8 +27,8 @@ function Accueil() {
           </Link>
         </div>
         <div className="images" id='image'>
-          
-       
+
+
           <div className='divimg imag3' id='img3'>
             <div className='contain' >
 

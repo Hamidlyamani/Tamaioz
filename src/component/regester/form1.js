@@ -1,99 +1,114 @@
-import React from 'react'
-import { useState } from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
+import { auth, db } from '../../lib/firebaseConfig';
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import { doc, setDoc } from "firebase/firestore";
+import { useDispatch } from 'react-redux';
+import { loginStart, loginSuccess } from '../../lib/authSlice';
 
-const Form1 = (props) => {
-    const handleIconClickInsideComponent = () => {
-        props.handleNextStep();
-    };
-    const handleIconClickInsideComponent2 = () => {
-        props.handleIconClickInsideComponent2();
-    };
+
+const Form1 = () => {
     const [data, setData] = useState({
         name: "",
         phone: "",
         ville: "",
         sexe: "",
         email: "",
-        motpass: "",
+        password: "",
         adresse: "",
-    })
-
-    // const [dataR, setdataR] = useState([]);
+    });
+    const dispatch = useDispatch();
     const handleChange = (e) => {
-        setData({ ...data, [e.target.name]: e.target.value });
-        // console.log(data)
+        const { name, value } = e.target;
+        setData((prevData) => ({ ...prevData, [name]: value }));
+    };
+   
 
-    }
-
-    const submitForm = (e) => {
+    const submitForm = async (e) => {
         e.preventDefault();
+        const formData = new FormData(e.target);
+        const formDataObj = Object.fromEntries(formData.entries());
 
-        const dataSend = {
-            name: data.name,
-            phone: data.phone,
-            ville: data.ville,
-            sexe: data.sexe,
-            email: data.email,
-            password: data.motpass,
-            adresse: data.adresse,
+        try {
+            dispatch(loginStart());
+            const userCredential = await createUserWithEmailAndPassword(auth, formDataObj.email, formDataObj.password);
+            const user = userCredential.user;
+
+            // Store user info in Firestore
+            await setDoc(doc(db, "users", user.uid), {
+                username: formDataObj.name,
+                email: user.email,
+                uid: user.uid,
+                u_phone: formDataObj.phone,
+                u_ville: formDataObj.ville,
+                u_sexe: formDataObj.sexe,
+                u_adresse: formDataObj.adresse,
+            });
+
+            await setDoc(doc(db, "userchats", user.uid), {
+                chats: [],
+            });
+            dispatch(loginSuccess(user));
+            console.log("User registered and data stored:", user);
+        } catch (error) {
+            console.error("Error registering user:", error);
         }
-        // console.log(dataSend);
 
-        axios.post('http://localhost/tamaioz/test.php', dataSend)
-            .then((response) => {
-                const responseData = response.data.data1.status;
-           
-            //JSON.parse( You can now use the 'id' variable in your React component
-                console.log(responseData);
-            // console.log(dataR)
-                sessionStorage.setItem('iduser', responseData);
-            // eslint-disable-next-line no-unused-expressions
-                props.detail2 === 'detail' ? handleIconClickInsideComponent() : handleIconClickInsideComponent2();
-        });
-        // console.log(dataR);
+        try {
+            const response = await axios.post('http://localhost/tamaioz/test.php', formDataObj);
+            const responseData = response.data.data1.status;
+            sessionStorage.setItem('iduser', responseData);
+        } catch (error) {
+            console.error("Error sending data to server:", error);
+        }
+
         setData({
             name: "",
             phone: "",
             ville: "",
             sexe: "",
             email: "",
-            motpass: "",
+            password: "",
             adresse: "",
         });
-       
-    }
-    // useEffect(() => {
-
-    //     if (dataR.length > 0) {
-            
-    //         // console.log(dataR);
-          
-    //     }
-
-    // }, [data]);
-
+    };
 
     return (
         <div>
             <form method="POST" onSubmit={submitForm} className="register-form" id="register-form">
-               
                 <div className="form-row">
-                    <div className="form-group"> <label htmlFor="ville">Nom Complete :</label>
-                        <input type="text" name="name" placeholder='Votre nom complet' value={data.name} onChange={handleChange} id="name" required />
+                    <div className="form-group">
+                        <label htmlFor="name">Nom Complet :</label>
+                        <input
+                            type="text"
+                            name="name"
+                            placeholder="Votre nom complet"
+                            value={data.name}
+                            onChange={handleChange}
+                            id="name"
+                            required
+                        />
                     </div>
                     <div className="form-group">
-                        <label htmlFor="ville">Numero de telephone :</label>
-                        <input type='number' name="phone" onChange={handleChange} id="phone" required placeholder='numéro de téléphone' value={data.phone} />
+                        <label htmlFor="phone">Numero de téléphone :</label>
+                        <input
+                            type="number"
+                            name="phone"
+                            placeholder="Numéro de téléphone"
+                            value={data.phone}
+                            onChange={handleChange}
+                            id="phone"
+                            required
+                        />
                     </div>
                 </div>
 
                 <div className="form-row">
                     <div className="form-group">
-                        <label htmlFor="ville">ville :</label>
+                        <label htmlFor="ville">Ville :</label>
                         <div className="form-select">
-                            <select name="ville" id="state1" onChange={handleChange} value={data.ville}>
-
+                            <select name="ville" id="state1" onChange={handleChange} value={data.ville} required>
+                                <option value="" disabled>Choisir une ville</option>
                                 <option value="Marrakech">Marrakech</option>
                                 <option value="Essaouira">Essaouira</option>
                                 <option value="Casablanca">Casablanca</option>
@@ -104,44 +119,65 @@ const Form1 = (props) => {
                         </div>
                     </div>
                     <div className="form-group">
-                        <label htmlFor="sexe">Sexe:</label>
+                        <label htmlFor="sexe">Sexe :</label>
                         <div className="form-select">
-                            <select name="sexe" id="state" onChange={handleChange} value={data.sexe}>
-
-                                <option value="Masculin">Masculin
-                                </option>
+                            <select name="sexe" id="state" onChange={handleChange} value={data.sexe} required>
+                                <option value="" disabled>Choisir un sexe</option>
+                                <option value="Masculin">Masculin</option>
                                 <option value="Féminin">Féminin</option>
                             </select>
                             <span className="select-icon"><i className="zmdi zmdi-chevron-down"></i></span>
                         </div>
                     </div>
                 </div>
+
                 <div className="form-row">
                     <div className="form-group">
-                        <label htmlFor="ville">Email :</label>
-                        <input type="email" name="email" id="father_name" placeholder='Votre adresse e-mail' onChange={handleChange} required value={data.email} />
-
+                        <label htmlFor="email">Email :</label>
+                        <input
+                            type="email"
+                            name="email"
+                            placeholder="Votre adresse e-mail"
+                            value={data.email}
+                            onChange={handleChange}
+                            id="email"
+                            required
+                        />
                     </div>
-                    <div className="form-group"> <label htmlFor="ville">Mot de passe :</label>
-                        <input type="password" name="motpass" id="address" placeholder='Votre mot de passe' onChange={handleChange} required value={data.motpass} />
-
+                    <div className="form-group">
+                        <label htmlFor="password">Mot de passe :</label>
+                        <input
+                            type="password"
+                            name="password"
+                            placeholder="Votre mot de passe"
+                            value={data.password}
+                            onChange={handleChange}
+                            id="password"
+                            required
+                        />
                     </div>
                 </div>
-                <div className="form-group"> <label htmlFor="ville">Adresse :</label>
-                    <input type="text" name="adresse" id="ville" onChange={handleChange} value={data.adresse} required placeholder='Votre adresse' />
 
+                <div className="form-group">
+                    <label htmlFor="adresse">Adresse :</label>
+                    <input
+                        type="text"
+                        name="adresse"
+                        placeholder="Votre adresse"
+                        value={data.adresse}
+                        onChange={handleChange}
+                        id="adresse"
+                        required
+                    />
                 </div>
 
-                <input type="reset" value="Reset All" className="submit" name="reset" id="reset" />
-                <input type="submit" className="submit" onClick={submitForm} name="submit" id="submit" />
-
-
-
-
-
+                <div className="form-group buttons">
+                    <input type="reset" value="Reset All" className="submit" name="reset" id="reset" />
+                    <input type="submit" className="submit" name="submit" id="submit" />
+                </div>
             </form>
-        </div >
-    )
-}
+        </div>
+    );
+};
 
-export default Form1
+export default Form1;

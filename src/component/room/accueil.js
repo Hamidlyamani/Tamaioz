@@ -6,18 +6,18 @@ function Acc() {
         <div className='Acc'>
             <div className='accueilA'>
                 <div className="roomAcueil">
-                   
+
                     <div className='calndr'>
                         <div className="schedule-container">
                             <div className="schedule-stage__wrapper">
-                                <h5>Votre emploi du temps personnalisé</h5>
+                                <h5>Votre emploi du temps personnalisé:</h5>
                                 <section className="schedule-stage">
                                     <div className="schedule-stage_guide-container">
                                         <div className="guide-slot">
                                             <p>Lundi: 8:00am - 9:00am</p>
                                             <div className="guide-slot_card">
                                                 <h4>Limites et continuité</h4>
-                                               
+
                                             </div>
                                         </div>
                                         <div className="guide-slot">
@@ -42,20 +42,28 @@ function Acc() {
                             </div>
                         </div>
                     </div>
-                  
+
 
 
                 </div>
                 <div className='niveau'>
                     <h5>  Progression de votre niveau selon les résultats des tests
                     </h5><div className='graph'> <img src={graph} alt='g' /></div>
-                    <div className='explination'><div className='color'></div><div className='contemnt'>
-                        Mathématique
-                    </div><div className='color blue'></div><div className='contemnt'>Anglais</div></div>
+                    <div className='explination'>
+                        <div className='exp'>
+                        <div className='color'></div><div className='contemnt'>
+                                Mathématique
+                            </div>
+                        </div>
+                        <div className='exp'>
+                            <div className='color blue'></div>
+                            <div className='contemnt'>Anglais</div>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div className='note'>
-                <h5>Note</h5>
+                <h5>Note:</h5>
                 <p>Cher étudiant, chaque cours que vous terminez vous rapproche un peu plus de vos objectifs. Continuez à vous investir et à persévérer, vous êtes sur la voie de la réussite !
                 </p> </div>
         </div>

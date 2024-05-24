@@ -55,7 +55,6 @@
 }
 
 .regest input:focus,
-.regest select:focus,
 .regest textarea:focus {
     outline: none;
     box-shadow: none !important;
@@ -116,7 +115,7 @@
     margin-top: 15px;
     text-transform: uppercase;
     margin-bottom: 50x;
-    padding:0px 20px 10px 20px;
+    padding: 0px 20px 10px 20px;
 }
 
 .regest h2 .bx-menu {
@@ -142,7 +141,7 @@
     position: relative;
     margin: 0 auto;
     background-color: #fff;
- 
+
 }
 
 .regest .signup-img {
@@ -150,7 +149,7 @@
 }
 
 .regest .signup-form {
-    width: 50%;
+    width: 100%;
 }
 
 .regest .signup-img {
@@ -175,8 +174,7 @@
     position: relative;
 }
 
-.regest input,
-.regest select {
+.regest input {
     display: block;
     width: 100%;
     border: 1px solid var(--primary);
@@ -187,9 +185,13 @@
     font-size: 13px;
 }
 
-.regest input:focus,
-.regest select:focus {
-    border: 1px solid #ff6801;
+.regest select {
+    border: none;
+    width: 100%;
+}
+
+.regest input:focus {
+    border: 1px solid #5e00ac;
 }
 
 .regest label {
@@ -278,6 +280,7 @@
 
 .regest .form-select {
     position: relative;
+    border: 1px solid var(--primary);
 }
 
 .regest select {
@@ -332,6 +335,12 @@
     padding-top: 27px;
 }
 
+.regest .form-group.buttons {
+    display: flex;
+    justify-content: end;
+    margin-bottom: 0px;
+}
+
 .regest .submit {
     width: 140px;
     height: 40px;
@@ -342,6 +351,8 @@
     padding: 10px;
     border: none;
     cursor: pointer;
+    color: #fff;
+    background: var(--primary);
 }
 
 .regest #reset {
@@ -351,23 +362,27 @@
 }
 
 .regest #reset:hover {
-    background: #ff6801;
+    background: var(--primary);
     color: #fff;
 }
 
 .regest#submit {
-    background: #ff6801;
+    background: var(--primary);
     color: #fff;
 }
 
 .regest #submit:hover {
-    background-color: #cd5300;
+    background-color: #530274;
 }
+
 .modal.show .modal-dialog {
     transform: none;
-    max-width: 80%;
+    max-width: 60%;
     margin-top: 70px;
+    top: 50%;
+    transform: translate(0%, -50%) !important;
 }
+
 @media screen and (max-width: 992px) {
     .regest .container {
         width: calc(100% - 40px);
@@ -400,6 +415,7 @@
     .regest .register-form {
         padding: 30px 0px 30px 0px;
     }
+
     .connexion2 {
         width: 100%;
         height: auto;
@@ -407,6 +423,11 @@
         position: absolute;
         overflow: scroll;
         padding: 10px;
+    }
+
+    .modal.show .modal-dialog {
+        transform: none;
+        max-width: 90%;
     }
 }
 
@@ -432,6 +453,11 @@
     .regest .form-radio-item {
         margin-right: 25px;
     }
+
+    .modal.show .modal-dialog {
+        top: 60%;
+        max-width: 100%;
+    }
 }
 
 @media screen and (max-width: 480px) {
@@ -454,10 +480,7 @@
 }
 
 /*# sourceMappingURL=style.css.map */
-.regest {
-
-
-}
+.regest {}
 
 .connexion2 .container {
     border-radius: 10px

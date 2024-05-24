@@ -1,37 +1,47 @@
 import './hedear.css';
 import logo from '../../assets/logo.png';
-
 import { Link } from 'react-router-dom';
 import Connixion from '../connexion/connexion';
 import Registar from '../regester/registar';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import { useState, useEffect, useRef } from 'react';
+import { useState,  } from 'react';
+import { useSelector } from 'react-redux';
 
 function Hedear() {
   const [connexion, setConnexion] = useState(false);
-
+  const user = useSelector((state) => state.auth.user);
+  if (!user) {
+    console.log('ttttt');
+  }
+  else { console.log(user + "dddddddddddddddd") };
   const hendelcon = () => {
     setConnexion(!connexion);
   }
   const [show, setShow] = useState(false);
   const handleShow = () => setShow(true);
-  const handleCloseModal = () => setShow(false); 
+  const handleCloseModal = () => setShow(false);
 
+  const [isNavCollapsed, setIsNavCollapsed] = useState(true);
 
-  const [isNavCollapsed, setIsNavCollapsed] = useState(false);
-  const handleNavCollapse = () => setIsNavCollapsed(!isNavCollapsed);
+  const handleNavCollapse = () => {
+    setIsNavCollapsed(true);
+  };
 
+  const handleNavItemClicked = () => {
+    setIsNavCollapsed(false);
+  };
   return (
     <div className='navbar2'>
+
       <Navbar expand="lg" className="bg-body-tertiary">
         <Container>
           <Navbar.Brand href="/">
             <img src={logo} alt="tamaoiz" width="80px" />
           </Navbar.Brand>
-          <Navbar.Toggle aria-controls="basic-navbar-nav" />
-          <Navbar.Collapse id="basic-navbar-nav" className={`${isNavCollapsed ? 'collapse' : 'collapse '} navbar-collapse`} >
+          <Navbar.Toggle aria-controls="basic-navbar-nav" onClick={handleNavCollapse} />
+          <Navbar.Collapse id="basic-navbar-nav" className={isNavCollapsed ? 'collapse' : 'collapse_custom'} >
             <Nav className="ms-auto">
               <div id="wrap1">
                 <form action="" autoComplete="on">
@@ -43,9 +53,9 @@ function Hedear() {
                   <input id="search_submit" value="" type="submit" />
                 </form>
               </div>
-              <Link className='nav-link' to="/" onClick={handleNavCollapse}> Accueil</Link>
-              <Link className='nav-link' to="/prof" onClick={handleNavCollapse}>nos professeurs</Link>
-              <Link className='nav-link' to="/about" onClick={handleNavCollapse}>À PROPOS</Link>
+              <Link className='nav-link' to="/" onClick={handleNavItemClicked}>{isNavCollapsed} Accueil</Link>
+              <Link className='nav-link' to="/prof" onClick={handleNavItemClicked}>nos professeurs</Link>
+              <Link className='nav-link' to="/about" onClick={handleNavItemClicked}>À PROPOS</Link>
             </Nav>
             <button className="inscrire" onClick={handleShow}>S'inscrire</button>
             <button className="connecter" onClick={hendelcon}>Se Connecter</button>
