@@ -5,7 +5,6 @@ import { Navigate } from 'react-router-dom';
 const withAuth = (WrappedComponent) => {
     const AuthComponent = (props) => {
         const user = useSelector((state) => state.auth.user);
-
         if (!user) {
             return <Navigate to="/" />;
         }

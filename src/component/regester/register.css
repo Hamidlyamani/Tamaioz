@@ -121,6 +121,7 @@
 .regest h2 .bx-menu {
     margin: 5px;
     margin-top: 10px;
+    cursor: pointer;
 }
 
 .regest .clear {

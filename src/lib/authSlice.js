@@ -4,6 +4,7 @@ import { createSlice } from '@reduxjs/toolkit';
 const initialState = {
     user: null,
     error: null,
+    name: 'auth',
 };
 
 const authSlice = createSlice({
@@ -14,7 +15,10 @@ const authSlice = createSlice({
             state.error = null;
         },
         loginSuccess: (state, action) => {
-            state.user = action.payload.uid ;
+            state.user = {
+                id: action.payload.uid, // Store user ID
+                name: action.payload.email, // Store user name (if available)
+            };
         },
         loginFailure: (state, action) => {
             state.error = action.payload.error;

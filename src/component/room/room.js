@@ -17,6 +17,9 @@ import axios from 'axios';
 import { useNavigate, useLocation } from 'react-router-dom';
 import File from './file.'
 import withAuth from '../withAuth'
+import { useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
+import { logout } from '../../lib/authSlice'
 
 
 
@@ -26,45 +29,44 @@ function Room() {
   const [activepage, setactivepage] = useState("acc");
   const [isActive, setIsActive] = useState(false);
   const [data, setdata] = useState([]);
+  const [dataprof, setdataprof] = useState([]);
   const navigate = useNavigate()
-
+  const dispatch = useDispatch();
+  const [iduserm, setIduserm] = useState('');
+  console.log("Enter your username ".location)
   useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await axios.post('http://localhost/tamaioz/buld_room.php',
           { idroom: variableValue, });
-        setdata(response.data.data1.status)
-        console.log(data); // Handle the response as needed           
+        setdata(response.data.status.data1[0])
+        setdataprof(response.data.status.data2[0])
       } catch (error) {
         console.error(error);
       }
     };
-
     fetchData();
   }, []);
-  // 
-
+  useEffect(() => {
+    if (data && data[0]) {
+      setIduserm(data[0].slice(0, -3));
+    }
+    console.log(iduserm);
+  }, [data]);
 
   const signout = () => {
-    navigate('/');
     sessionStorage.removeItem('iduser');
-    window.location.reload()
+    dispatch(logout());
+    navigate('/');
   }
-
-
   const hendlroom = (a) => {
     setactivepage(a);
+    handleClick();
   }
-
-
-
-
-
-
   const handleClick = () => {
     setIsActive(!isActive);
   };
-
+  const user = useSelector((state) => state.auth.user);
 
 
   return (
@@ -117,7 +119,7 @@ function Room() {
               <div className="profile-details">
                 <img src={img1} alt="profileImg" />
                 <div className="name_job">
-                  <div className="name">{data[1]}</div>
+                  <div className="name">{data['nom_app']}</div>
                   <div className="job"></div>
                 </div>
               </div>
@@ -129,11 +131,11 @@ function Room() {
         </div>
       </div>
       <section className={!isActive ? ' section section-sedbar' : 'section'}>
-        <h6 className='titre1'>Bienvenue <span className='span'>Mr {data[1]}  </span> dans votre espace d'apprentissage personnalisé.</h6>
+        <h6 className='titre1'>Bienvenue <span className='span'>Mr  {data['nom_app']}</span> dans votre espace d'apprentissage personnalisé.</h6>
 
         {activepage === "acc" && <Acc />}
-        {activepage === "prof" && <Listprofs data={data} />}
-        {activepage === "message" && <Message data={data[2]} />}
+        {activepage === "prof" && <Listprofs data={dataprof} />}
+        {activepage === "message" && <Message data={iduserm} />}
         {activepage === "vedio" && <JitsiMeet />}
         {activepage === "file" && < File />}
 

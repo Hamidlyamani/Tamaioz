@@ -6,58 +6,77 @@ import { faX } from '@fortawesome/free-solid-svg-icons'
 import { useNavigate } from "react-router-dom";
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../../lib/firebaseConfig';
-
+import { useDispatch } from 'react-redux';
+import { loginSuccess } from '../../lib/authSlice';
+import { toast } from 'react-toastify';
 
 
 const Connixion = ({ hendelcon }) => {
-    const handleIconClickInsideComponent = () => {
-        hendelcon();
-    };
+    const dispatch = useDispatch();
     const [prof, setprof] = useState(false);
     const [etud, setetud] = useState(true);
     const [typeuser, settypeuser] = useState('etud');
-    const [data, setData] = useState({
+    let localErrorOrNotfr = false;
+    let localErrorOrNot = false;
+    const handleIconClickInsideComponent = () => {
+        hendelcon();
+    };
 
+    const [data, setData] = useState({
         email: "",
         password: "",
         type: "",
-
     })
     const [idappt, setidappt] = useState('');
     const navigate = useNavigate();
-
-
+    const idetud = sessionStorage.getItem('iduser');
+    const idprof = null;
+    const nomroom = idetud + "000";
+    const room_demmande = async (e) => {
+        const dataSend = {
+            idetud: idetud,
+            idprof: null,
+            nameroom: nomroom
+        }
+        await axios.post('http://localhost/tamaioz/room_demmande.php', dataSend).then((result) => {
+            navigate('/room', { state: { variable: nomroom } });
+        });
+    }
     const handleChange = (e) => {
         setData({ ...data, [e.target.name]: e.target.value });
     }
 
-
     const submitForm = async (e) => {
         e.preventDefault();
-
         try {
 
-            await signInWithEmailAndPassword(auth, data.email, data.password)
-            console.log("sign in with email and password");
+
+            const userCredential = await signInWithEmailAndPassword(auth, data.email, data.password);
+            const user = userCredential.user;
+            dispatch(loginSuccess(user));
 
         } catch (error) {
-            console.log(error.message);
+            localErrorOrNotfr = true;
         }
+
         const dataSend = {
             email: data.email,
             password: data.password,
             type: typeuser,
         }
 
-        axios.post('http://localhost/tamaioz/conx.php', dataSend)
+        await axios.post('http://localhost/tamaioz/conx.php', dataSend)
             .then((result) => {
-                const idapp = result.data.data1.status;
-                // eslint-disable-next-line no-unused-expressions
-                idapp === 'invalid' ? setidappt("Le mot de passe est incorrect") :
-                    setidappt("Connecte avec succes");
-                sessionStorage.setItem('iduser', idapp);
-                navigate('/room');;
+                const idapp = result?.data?.data1?.status;
+                if (idapp === 'invalid') {
+                    setidappt("L'email ou le mot de passe est incorrect")
+                    localErrorOrNot = true;
+                }
+                else {
+                    handleIconClickInsideComponent();
+                    room_demmande()
 
+                }
                 setData({
                     email: "",
                     password: "",
@@ -65,11 +84,22 @@ const Connixion = ({ hendelcon }) => {
                 }
                 );
             })
-
-
+        if (!localErrorOrNot && !localErrorOrNotfr) {
+            toast.success('Félicitations ! Vous êtes maintenant connecté(e) avec succès.');
+        } else {
+            toast.error('Erreur de connexion ! Veuillez vérifier vos informations et réessayer.');
+        }
     }
 
 
+    // const show_alert = async () => {
+    //     console.log('Firebase Error:', error_or_notfr, 'Axios Error:', error_or_not);
+
+
+    // };
+    // // Réinitialiser les erreurs après affichage des toasts
+    // setErrorOrNot(false);
+    // setErrorOrNotfr(false);
 
 
 
@@ -98,7 +128,7 @@ const Connixion = ({ hendelcon }) => {
                 <form action='' method='post' onSubmit={submitForm}>
                     <input type='hidden' className={prof ? 'active' : ''} id='type' name="type" />
                     <input type='text' className={prof ? 'active' : ''} onChange={handleChange} value={data.email} id='email' name="email" placeholder='Votre adresse e-mail' />
-                    <input type='password' className={prof ? 'active' : ''} onChange={handleChange} value={data.password} id='password' name="password" placeholder='Mot de passe' />
+                    <input type='password' className={prof ? 'active' : ''} onChange={handleChange} id='password' name="password" placeholder='Mot de passe' />
                     <input type='submet' value='SE CONNECTER' onClick={submitForm} className={prof ? 'submet active' : 'submet'} />
                 </form>
                 <div className='Mot_passe_oublié'>

@@ -29,12 +29,12 @@ function Prof() {
 
   const handleclick = (e) => {
     e.preventDefault();
- 
+
     const newFilteredProfs = profs.filter((item) =>
       item.villeprof === data.ville && item.matier_m === data.matier
     );
     setFilteredProfs(newFilteredProfs);
-   
+
     setPs(true);
   };
 

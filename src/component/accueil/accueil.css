@@ -315,7 +315,7 @@
  .etapes .titre1 .block span {
      color: var(--primary);
      font-weight: 900;
-     font-size: 2em;
+     font-size: 1em;
  }
 
  .etapes .cards {
@@ -632,19 +632,22 @@
      .zigzag-timeline__item h3 {
          font-size: 1.1em;
      }
-        .images div .contain .matier1 {
-            left: 13%;
-        }
+
+     .images div .contain .matier1 {
+         left: 13%;
+     }
 
  }
 
  @media only screen and (max-width: 575px) {
      .images:hover .matier1 {
-        left: -80%;
+         left: -80%;
      }
-.images div .contain .matier1 {
-    left: 13%;
-}
+
+     .images div .contain .matier1 {
+         left: 13%;
+     }
+
      .pagedebonvenue .titre_intro_button .intro {
          font-size: 1rem;
      }
@@ -673,13 +676,15 @@
          padding-right: 0px;
      }
  }
+
  @media only screen and (max-width: 450px) {
-   
-    .divimg:hover~.imag1 .contain .matier1,
-    .images div .contain .matier {
+
+     .divimg:hover~.imag1 .contain .matier1,
+     .images div .contain .matier {
          left: -80%;
      }
-         .images div .contain .matier1 {
-             left: 13%;
-         }
+
+     .images div .contain .matier1 {
+         left: 13%;
+     }
  }

@@ -6,29 +6,34 @@ import Registar from '../regester/registar';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import { useState,  } from 'react';
-import { useSelector } from 'react-redux';
+import { useState, } from 'react';
 
 function Hedear() {
   const [connexion, setConnexion] = useState(false);
-  const user = useSelector((state) => state.auth.user);
-  if (!user) {
-    console.log('ttttt');
+  const [show, setShow] = useState(false);
+
+
+  const handleShow = () => {
+    setShow(true);
+    setConnexion(false);
   }
-  else { console.log(user + "dddddddddddddddd") };
+  const handleCloseModal = () => {
+    setShow(false);
+
+  }
+
+
   const hendelcon = () => {
     setConnexion(!connexion);
+    setShow(false)
   }
-  const [show, setShow] = useState(false);
-  const handleShow = () => setShow(true);
-  const handleCloseModal = () => setShow(false);
+
 
   const [isNavCollapsed, setIsNavCollapsed] = useState(true);
 
   const handleNavCollapse = () => {
     setIsNavCollapsed(true);
   };
-
   const handleNavItemClicked = () => {
     setIsNavCollapsed(false);
   };

@@ -5,9 +5,9 @@ import { createUserWithEmailAndPassword } from "firebase/auth";
 import { doc, setDoc } from "firebase/firestore";
 import { useDispatch } from 'react-redux';
 import { loginStart, loginSuccess } from '../../lib/authSlice';
+import { toast } from 'react-toastify';
 
-
-const Form1 = () => {
+const Form1 = (props) => {
     const [data, setData] = useState({
         name: "",
         phone: "",
@@ -18,16 +18,29 @@ const Form1 = () => {
         adresse: "",
     });
     const dispatch = useDispatch();
+
+
     const handleChange = (e) => {
         const { name, value } = e.target;
         setData((prevData) => ({ ...prevData, [name]: value }));
     };
-   
 
     const submitForm = async (e) => {
         e.preventDefault();
         const formData = new FormData(e.target);
         const formDataObj = Object.fromEntries(formData.entries());
+        let userIdLocal1 = null;
+        try {
+            const response = await axios.post('http://localhost/tamaioz/test.php', formDataObj);
+            const responseData = response.data.data1.status;
+            sessionStorage.setItem('iduser', responseData);
+            userIdLocal1 = responseData;
+
+        } catch (error) {
+            console.error("Error sending data to server:", error);
+        }
+
+
 
         try {
             dispatch(loginStart());
@@ -39,6 +52,8 @@ const Form1 = () => {
                 username: formDataObj.name,
                 email: user.email,
                 uid: user.uid,
+
+                u_phone: formDataObj.phone,
                 u_phone: formDataObj.phone,
                 u_ville: formDataObj.ville,
                 u_sexe: formDataObj.sexe,
@@ -47,20 +62,20 @@ const Form1 = () => {
 
             await setDoc(doc(db, "userchats", user.uid), {
                 chats: [],
+                userIdLocal: userIdLocal1,
             });
             dispatch(loginSuccess(user));
+
+
             console.log("User registered and data stored:", user);
+            toast.success('Félicitations ! Votre compte a été créé avec succès.');
+
         } catch (error) {
             console.error("Error registering user:", error);
+            toast.error('Erreur technique ! Impossible de finaliser votre inscription. Veuillez réessayer plus tard.');
         }
 
-        try {
-            const response = await axios.post('http://localhost/tamaioz/test.php', formDataObj);
-            const responseData = response.data.data1.status;
-            sessionStorage.setItem('iduser', responseData);
-        } catch (error) {
-            console.error("Error sending data to server:", error);
-        }
+
 
         setData({
             name: "",
@@ -71,6 +86,13 @@ const Form1 = () => {
             password: "",
             adresse: "",
         });
+        ;
+        if (props.profid === undefined) {
+            props.handleClose2();
+        }
+        else {
+            props.handleNextStepProps();
+        }
     };
 
     return (

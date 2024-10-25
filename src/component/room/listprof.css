@@ -1,23 +1,40 @@
-.listeprof{
+.listeprof {
     background-color: var(--light3);
-    height: 200px;padding: 4px;
+    margin: 20px 0px;
+    padding: 14px 10px;
+    border-radius: 5px;
+    min-width: 450px;
+    overflow-x: auto;
+    overflow-y: hidden;
 }
-.liste{
-height: 200px;
+
+.liste {
+
     border-radius: 10px;
-    margin: 20px;
+    margin: 15px;
     width: 90%;
-  text-align: center;
+    text-align: center;
 }
-.liste table{border: 2px solid var(--light1);
-    width: 100%;border-radius: 10px;
-    margin: auto 20px;
-    
+
+.liste table {
+    border: 2px solid var(--light1);
+    width: 100%;
+    border-radius: 10px;
+    margin: 10px;
+
 }
-.liste table th{border-radius: 10px;
-    background-color:var(--light1) ;text-align: center;
-    border: 2px solid #fff;padding: 10px;color: #fff;
+
+.liste table th {
+    border-radius: 10px;
+    background-color: var(--light1);
+    text-align: center;
+    border: 2px solid #fff;
+    padding: 10px;
+    color: #fff;
 }
-.liste table td{
-    border: 2px solid var(--light1);padding: 10px;text-align: center;
+
+.liste table td {
+    border: 2px solid var(--light1);
+    padding: 10px;
+    text-align: center;
 }

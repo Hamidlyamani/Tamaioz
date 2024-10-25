@@ -1,8 +1,9 @@
-.app-message-body{
+.app-message-body {
     min-height: 400px;
 }
+
 .message .app-wrapper {
-   min-width: 400px;
+    min-width: 400px;
 
     padding: 24px;
     margin: auto;
@@ -71,7 +72,8 @@
     box-shadow: 4px 4px rgba(200, 200, 200, 0.25);
     font-size: 0.9rem;
     display: flex;
-    flex: 1 auto;font-weight: 100;
+    flex: 1 auto;
+    font-weight: 100;
 }
 
 .message .message-meta {
@@ -139,4 +141,19 @@ button[type=submit]:hover {}
 
 svg {
     fill: #f7b633;
+}
+
+.createChat {
+    background-color: #8300e3;
+    color: #fff;
+    padding: 20px 30px;
+    border-radius: 5px;
+    margin: 120px auto;
+    width: fit-content;
+    font-family: 'yellix-regular';
+}
+
+.createChat span {
+    font-family: 'yellix-bold';
+    font-weight: 900;
 }

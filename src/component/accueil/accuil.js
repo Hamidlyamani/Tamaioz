@@ -3,7 +3,6 @@ import './accueil.css'
 
 import Typeetudiant from '.././sections/typeetudiant.js';
 import Type22 from '.././sections/type22';
-import Carousal from '../sections/carousal/carousal.js';
 
 import teacher1 from '../../assets/1.png';
 import teacher2 from '../../assets/4.jpg';
@@ -96,7 +95,7 @@ function Accueil() {
           text="Tamaioz offre une aide personnalisée pour apprendre une nouvelle langue avec des enseignants qualifiés. Développez votre confiance en vous et apprenez à votre propre rythme pour améliorer vos compétences de communication et vous intégrer dans une nouvelle culture. Inscrivez-vous dès maintenant pour acquérir une maîtrise de la langue en peu de temps avec Tamaioz." image={language} />
       </div>
       <div className='etapes container'>
-        <h2 className='titre1'>Suivez votre parcours éducatif personnalisé  <b className='block'>en  <span>5</span> étapes avec Tamaioz</b></h2>
+        <h2 className='titre1'>Suivez votre parcours éducatif personnalisé  <b className='block'>en  <span>5 étapes</span> avec Tamaioz</b></h2>
 
 
         <div className="w3-container">

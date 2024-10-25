@@ -3,8 +3,8 @@
     height: 100%;
     flex-direction: column;
     position: absolute;
-position: fixed;
-    z-index: 99999;
+    position: fixed;
+    z-index: 9;
     background-color: rgba(255, 255, 255, 0.685);
 
 }
@@ -23,10 +23,11 @@ position: fixed;
     transform: translate(-50%, -50%);
 }
 
-.reteur{
+.reteur {
     padding: 0px 10px;
     cursor: pointer;
 }
+
 .prof {
     border: solid 2px var(--secondary);
 }
@@ -41,22 +42,22 @@ position: fixed;
 
 .type {
     width: 100%;
- 
+
     display: flex;
     justify-content: space-around;
 }
 
 .type div {
     text-transform: uppercase;
-        font-weight: 700;
-        cursor: pointer;
+    font-weight: 700;
+    cursor: pointer;
     font-size: 1.1em;
     border-radius: 5px;
     margin: 5px 1em;
     padding: 10px 20px;
     background-color: var(--light3);
     border-bottom: 4px solid transparent;
-        border-top: 4px solid transparent;
+    border-top: 4px solid transparent;
 }
 
 .type .isnow {
@@ -102,7 +103,8 @@ form .submet {
     text-align: center;
     background-color: var(--primary);
     border: none;
-    color: rgb(255, 255, 255)
+    color: rgb(255, 255, 255);
+    cursor: pointer;
 }
 
 form .submet.active {
@@ -115,20 +117,22 @@ form .submet.active {
 
 .Mot_passe_oublié {
     text-align: center;
-   font-weight: bold;
+    font-weight: bold;
     text-decoration: none;
-  
+
 }
 
 
-@media only screen and (max-width: 768px){
-     .contain2 {
-    width: 300PX;
-     }
-         .type div {
-      
-             font-size: 1em;
-           
-             margin: 5px;
-             padding: 10px;}
+@media only screen and (max-width: 768px) {
+    .contain2 {
+        width: 300PX;
+    }
+
+    .type div {
+
+        font-size: 1em;
+
+        margin: 5px;
+        padding: 10px;
+    }
 }
